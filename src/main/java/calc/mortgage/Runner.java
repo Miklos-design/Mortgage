@@ -1,23 +1,30 @@
 package calc.mortgage;
 
 import java.text.DecimalFormat;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Runner {
 
 	public static void main(String[] args) {
-			long principal;
+			long principal = 0;
 			double interestRateMonthly;
 		
 			Scanner userInput = new Scanner(System.in);
 			
 		while(true) {
-			System.out.println("Please enter principal between 1k and 1m: ");
+			try { System.out.println("Please enter principal between 1k and 1m: ");
 			principal =userInput.nextLong();
-			if (principal>=1000 && principal <= 1_000_000)
-				break;
-			System.out.println("Enter valid amount!");
+				if (principal>=1000 && principal <= 1_000_000)
+					break;
+			System.out.println("Enter valid amount!");}
+			catch (InputMismatchException e) { 
+		    System.err.println("Please enter a number! ");
+		    userInput.next(); // clear scanner wrong input
+		    		continue; // continues to loop if exception is found
 		}
+			}
+		
 		while(true) {
 			System.out.println("Please enter annual interest rate: ");
 			interestRateMonthly =userInput.nextDouble()/1200;

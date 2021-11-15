@@ -10,7 +10,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-
+//NeedMockingto finish
 /**
  * @author miklosfarinics
  *
@@ -36,6 +36,7 @@ public class RunnerTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
+		// 
 	}
 
 	/**
